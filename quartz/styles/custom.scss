@@ -1,3 +1,576 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* ============================================================
+   Victor's Digital Garden — Editorial Design System
+   Style: Paul Graham × Stratechery × Korean Premium Editorial
+   ============================================================ */
+
+/* 1. FONT IMPORTS
+   ============================================================ */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* 2. DESIGN TOKENS
+   ============================================================ */
+:root {
+  --max-prose: 680px;
+  --victor-gold: #c9a84c;
+  --victor-gold-subtle: rgba(201, 168, 76, 0.12);
+  --victor-blue: #2d5be3;
+  --victor-blue-glow: rgba(45, 91, 227, 0.15);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.22s var(--ease-smooth);
+}
+
+[saved-theme="dark"] {
+  --victor-blue: #5b8dee;
+  --victor-blue-glow: rgba(91, 141, 238, 0.18);
+}
+
+/* 3. GLOBAL TYPOGRAPHY — Korean-optimized Editorial
+   ============================================================ */
+body {
+  font-family: "Pretendard Variable", "Noto Sans KR", -apple-system, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Pretendard Variable", "Noto Sans KR", sans-serif !important;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+
+/* 4. ARTICLE TYPOGRAPHY — 680px prose, generous line-height
+   ============================================================ */
+.center > article {
+  max-width: var(--max-prose);
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.92;
+
+  p {
+    margin-bottom: 1.6rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  > h1 {
+    font-size: 2.1rem !important;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.04em;
+  }
+
+  > h2 {
+    font-size: 1.45rem !important;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--lightgray);
+  }
+
+  > h3 {
+    font-size: 1.15rem !important;
+    font-weight: 700;
+    margin-top: 2.2rem;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--victor-gold) !important;
+    background: var(--victor-gold-subtle);
+    padding: 1rem 1.5rem;
+    border-radius: 0 10px 10px 0;
+    margin: 2rem 0;
+    font-style: normal;
+
+    p {
+      margin-bottom: 0;
+      color: var(--darkgray);
+    }
+  }
+
+  hr {
+    margin: 3rem auto;
+    opacity: 0.4;
+  }
+
+  strong {
+    color: var(--dark);
+    font-weight: 700;
+  }
+}
+
+/* Article title (h1 before article body) */
+h1.article-title {
+  font-size: 2rem !important;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+
+/* 5. ARTICLE META — reading time / date badge
+   ============================================================ */
+p.content-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--lightgray);
+
+  span, time, a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+}
+
+/* 6. HERO SECTION (homepage only)
+   ============================================================ */
+.hero-section {
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 2rem;
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--victor-blue);
+    background: var(--victor-blue-glow);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(91, 141, 238, 0.2);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 2.8rem) !important;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    color: var(--dark);
+    margin: 0 0 1.2rem;
+    word-break: keep-all;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--gray);
+    max-width: 540px;
+    margin: 0 0 1.75rem;
+    word-break: keep-all;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    span {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--lightgray);
+      color: var(--gray);
+      border: 1px solid var(--lightgray);
+      transition: var(--transition);
+
+      &:hover {
+        background: var(--victor-blue-glow);
+        color: var(--victor-blue);
+        border-color: rgba(91, 141, 238, 0.3);
+      }
+    }
+  }
+}
+
+/* 7. AUTHOR CARD (left sidebar)
+   ============================================================ */
+.author-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.2rem;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 14px;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 4px 20px var(--victor-blue-glow);
+  }
+
+  .author-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--lightgray);
+    transition: var(--transition);
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      margin: 0;
+      border-radius: 50%;
+      display: block;
+    }
+  }
+
+  &:hover .author-avatar {
+    border-color: var(--secondary);
+  }
+
+  .author-info {
+    h4 {
+      margin: 0 0 0.25rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.76rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+  }
+
+  .author-links {
+    display: flex;
+    gap: 0.45rem;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      background: var(--lightgray);
+      color: var(--darkgray);
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid transparent;
+
+      svg {
+        flex-shrink: 0;
+      }
+
+      &:hover {
+        background: var(--secondary);
+        color: var(--light);
+        transform: translateY(-1px);
+        box-shadow: 0 3px 10px var(--victor-blue-glow);
+      }
+    }
+  }
+}
+
+/* 8. ARTICLE LIST CARDS
+   ============================================================ */
+ul.section-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+li.section-li {
+  > .desc {
+    display: block;
+    padding: 1.4rem 1.5rem;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 12px;
+    transition: var(--transition);
+    text-decoration: none;
+
+    &:hover {
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px var(--victor-blue-glow);
+    }
+
+    .desc-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0 0 0.4rem;
+      letter-spacing: -0.02em;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.55;
+      margin: 0;
+    }
+  }
+}
+
+/* 9. READING PROGRESS BAR
+   ============================================================ */
+.navigation-progress {
+  height: 2px !important;
+  background: linear-gradient(
+    90deg,
+    var(--victor-blue) 0%,
+    var(--victor-gold) 100%
+  ) !important;
+}
+
+/* 10. PAGE TITLE (sidebar logo)
+   ============================================================ */
+.page-title {
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+
+  a {
+    background: linear-gradient(
+      135deg,
+      var(--dark) 0%,
+      var(--secondary) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+/* 11. SEARCH BAR
+   ============================================================ */
+#search-bar {
+  border-radius: 8px !important;
+  border: 1px solid var(--lightgray) !important;
+  font-family: "Pretendard Variable", sans-serif !important;
+  font-size: 0.88rem !important;
+  transition: var(--transition) !important;
+
+  &:focus {
+    border-color: var(--secondary) !important;
+    box-shadow: 0 0 0 3px var(--victor-blue-glow) !important;
+    outline: none !important;
+  }
+}
+
+/* 12. TAG BADGES
+   ============================================================ */
+.tag-link,
+a[href*="/tags/"] {
+  display: inline-block;
+  padding: 0.15rem 0.65rem !important;
+  border-radius: 999px !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  background: var(--lightgray) !important;
+  color: var(--gray) !important;
+  transition: var(--transition) !important;
+  border: 1px solid transparent;
+  text-decoration: none !important;
+
+  &::before {
+    content: "#";
+    opacity: 0.6;
+  }
+
+  &:hover {
+    background: var(--victor-blue-glow) !important;
+    color: var(--victor-blue) !important;
+    border-color: rgba(91, 141, 238, 0.25);
+    transform: translateY(-1px);
+  }
+}
+
+/* 13. TABLE OF CONTENTS
+   ============================================================ */
+.toc {
+  font-size: 0.82rem !important;
+
+  li {
+    line-height: 1.6;
+
+    a {
+      color: var(--gray) !important;
+      font-weight: 400;
+      transition: var(--transition);
+
+      &.in-view {
+        color: var(--secondary) !important;
+        font-weight: 600;
+      }
+
+      &:hover {
+        color: var(--dark) !important;
+      }
+    }
+  }
+}
+
+/* 14. FOOTER
+   ============================================================ */
+footer.footer {
+  border-top: 1px solid var(--lightgray);
+  padding-top: 1.5rem !important;
+  margin-top: 3rem;
+
+  p {
+    font-size: 0.82rem !important;
+    color: var(--gray) !important;
+  }
+
+  ul li a {
+    color: var(--gray) !important;
+    font-weight: 500;
+    font-size: 0.82rem;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--secondary) !important;
+    }
+  }
+}
+
+/* 15. BACKLINKS
+   ============================================================ */
+.backlinks {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lightgray);
+
+  h3 {
+    font-size: 0.85rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray);
+    margin-bottom: 0.75rem;
+  }
+
+  ul li a {
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+}
+
+/* 16. INTERNAL LINKS (wiki-style)
+   ============================================================ */
+a.internal {
+  background: var(--victor-blue-glow) !important;
+  color: var(--secondary) !important;
+  border-radius: 4px !important;
+  padding: 0.05rem 0.25rem !important;
+  transition: var(--transition);
+
+  &.broken {
+    background: var(--lightgray) !important;
+    color: var(--gray) !important;
+    opacity: 0.7;
+    text-decoration: none;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:hover:not(.broken) {
+    background: rgba(91, 141, 238, 0.25) !important;
+  }
+}
+
+/* 17. DARK MODE OVERRIDES
+   ============================================================ */
+[saved-theme="dark"] {
+  .hero-section .hero-title {
+    color: var(--dark);
+  }
+
+  .author-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+
+    .author-links a {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--darkgray);
+    }
+  }
+
+  li.section-li > .desc {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  article blockquote {
+    background: rgba(201, 168, 76, 0.07);
+  }
+}
+
+/* 18. MOBILE RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 1.5rem 0 1.5rem;
+
+    .hero-title {
+      font-size: 1.8rem !important;
+    }
+  }
+
+  .center > article {
+    font-size: 1rem;
+  }
+
+  h1.article-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* 19. SMOOTH PAGE TRANSITIONS
+   ============================================================ */
+.page {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 20. SELECTION COLOR
+   ============================================================ */
+::selection {
+  background: var(--victor-blue-glow) !important;
+  color: var(--dark);
+}
