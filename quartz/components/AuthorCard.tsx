@@ -14,7 +14,7 @@ const AuthorCard = (_props: QuartzComponentProps) => {
         <p>
           Honeywell Key Initiatives Lead
           <br />
-          서강대 비즈니스 박사과정
+          연구자
         </p>
       </div>
       <div class="author-links">
