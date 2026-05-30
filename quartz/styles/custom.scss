@@ -694,3 +694,121 @@ img, video, iframe, table, pre, code {
   background: var(--victor-blue-glow) !important;
   color: var(--dark);
 }
+
+/* 21. GRAPH VIEW
+   ============================================================ */
+.graph {
+  > .graph-outer {
+    border: 1px solid var(--lightgray);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--light);
+    transition: var(--transition);
+
+    &:hover {
+      border-color: var(--secondary);
+      box-shadow: 0 4px 20px var(--victor-blue-glow);
+    }
+
+    > h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray);
+      padding: 0.8rem 1rem 0.4rem;
+      margin: 0;
+      border-bottom: 1px solid var(--lightgray);
+    }
+  }
+
+  #global-graph-icon {
+    opacity: 0.5;
+    transition: var(--transition);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+/* Graph 노드 색상 (다크모드) */
+[saved-theme="dark"] {
+  .graph > .graph-outer {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* 22. BACKLINKS
+   ============================================================ */
+.backlinks {
+  padding-top: 0;
+  border-top: none;
+  margin-top: 0;
+
+  > h3 {
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    margin: 0 0 0.6rem;
+    padding: 0;
+  }
+
+  > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    > li {
+      > a {
+        display: block;
+        padding: 0.45rem 0.75rem;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: var(--darkgray);
+        background: var(--lightgray);
+        border: 1px solid transparent;
+        transition: var(--transition);
+        text-decoration: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover {
+          background: var(--victor-blue-glow);
+          color: var(--secondary);
+          border-color: rgba(91, 141, 238, 0.25);
+          transform: translateX(3px);
+        }
+      }
+    }
+  }
+
+  /* 백링크 없을 때 */
+  > ul:empty::after {
+    content: "연결된 문서가 없습니다";
+    display: block;
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-style: italic;
+    padding: 0.4rem 0;
+  }
+}
+
+[saved-theme="dark"] {
+  .backlinks > ul > li > a {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--darkgray);
+
+    &:hover {
+      background: var(--victor-blue-glow);
+    }
+  }
+}

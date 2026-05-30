@@ -50,3 +50,8 @@ created: 2026-05-23 23:09
 여러분의 데이터센터는 지금 '왼손과 오른손이 결합된' 통합 자율 운영 체계를 준비하고 계십니까?
 
 #데이터센터 #하니웰 #LS일렉트릭 #스마트빌딩 #에너지ROI #자율운영 #디지털전환 #DX #예지정비 #ESG
+
+---
+## 관련 글
+- [[blog_adaptive_leadership|AI J-커브를 넘는 적응형 리더십]]
+- [[blog_presence_long|Executive Presence — 기계가 일하고 인간이 신뢰를 짓는다]]
