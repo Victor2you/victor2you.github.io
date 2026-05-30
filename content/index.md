@@ -1,12 +1,12 @@
 ---
 title: Victor's Digital Garden
-description: 25년 차 하니웰 임원이자 서강대 박사과정 연구자의 DX/AX 인사이트
+description: 자동화기업 임원이자 연구자의 DX/AX 인사이트
 ---
 
 <div class="hero-section">
   <div class="hero-eyebrow">Pracademic Insights</div>
-  <h1 class="hero-title">기계가 일하고,<br/>인간이 신뢰를 짓는다.</h1>
-  <p class="hero-sub">25년간 현장에서 증류한 통찰을, 학문의 엄밀함으로 다시 벼린다.<br/>하니웰 임원 × 박사과정 연구자의 DX/AX 비망록.</p>
+  <h1 class="hero-title">기계가 일하고,<br/>인간이 신뢰를 만든다.</h1>
+  <p class="hero-sub">25년이상 현장에서 증류한 통찰을, 학문의 엄밀함으로 다시 벼린다.<br/>글로벌 자동화기업 임원 × 연구자의 DX/AX 비망록.</p>
   <div class="hero-tags">
     <span>#MissionCritical</span>
     <span>#AutonomousOps</span>
