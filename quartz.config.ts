@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "ko-KR",
-    baseUrl: "victor2you.github.io/Victor.github.io",
+    baseUrl: "victor2you.github.io",
     ignorePatterns: ["private", "templates", ".obsidian", "linkedin_*"],
     defaultDateType: "modified",
     theme: {
